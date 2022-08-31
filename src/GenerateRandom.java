@@ -44,7 +44,7 @@ public class GenerateRandom {
                 randomNumbers.add(ss); }
             else {
                 randomNumbers.add(ss); }
-            u++; 
+            u++;
             //System.out.println(u);
         System.out.println("The selected order will be: " + randomNumbers);
 
