@@ -6,13 +6,11 @@ public class GenerateRandom {
     public static void main(String args[]) {
 
         List<String> names = new ArrayList<>();
-        names.add("A");
-        names.add("B");
-        names.add("C");
-        names.add("D");
+        names.add("Castro");
+        names.add("Poshoo");
+        names.add("Orlando");
+        names.add("PoshoPato");
 
-        String slctdNumber = "";
-        String slctdName = "";
         String ss = "";
 
         System.out.println(names);
@@ -35,17 +33,27 @@ public class GenerateRandom {
             System.out.println("The selected order will be: " + randomNumbers);
             u++;
         }
-        while (u < upperbound-1);
+
+        //ss = Integer.toString(intRandom);
+
+        while (randomNumbers.size() < 4);
         intRandom = rand.nextInt(upperbound);
         ss = Integer.toString(intRandom);
             if (randomNumbers.contains(ss)) {
+                //System.out.println(intRandom);
                 intRandom = rand.nextInt(upperbound);
                 ss = Integer.toString(intRandom);
-                randomNumbers.add(ss); }
+                //System.out.println(ss);
+                randomNumbers.add(ss);
+                u++;
+            }
             else {
-                randomNumbers.add(ss); }
-            u++;
+                randomNumbers.add(ss);
+                u++;
+            }
+
             //System.out.println(u);
+
         System.out.println("The selected order will be: " + randomNumbers);
 
         /*for (int i = 0; i < upperbound; i++) {
