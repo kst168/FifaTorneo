@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 class RandomNumber {    // This class contains a method that randomizes the player order,
-                        // in order to fairly select teams
+                        // in order to more fairly select teams
 
     public List<Player> randomListGenerator(List<Player> sortedPlayers) {
         Random rand = new Random();                         // Creates an object of the random class
@@ -24,7 +24,7 @@ class RandomNumber {    // This class contains a method that randomizes the play
                 randomNumbers.add(number);
             }
         }
-        System.out.println(randomNumbers);
+        //System.out.println(randomNumbers);
         List<Player> selectedNames;
         selectedNames = new ArrayList<>();
 
@@ -34,7 +34,7 @@ class RandomNumber {    // This class contains a method that randomizes the play
             selectedNames.add(sortedPlayers.get(a));
             System.out.println(selectedNames);
         }
-        System.out.println("The selected order will be: " + selectedNames);
+        System.out.println("The selected order will be: ");
         return selectedNames;
     }
 }

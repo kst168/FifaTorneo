@@ -24,8 +24,20 @@ public class Main {
         System.out.println(players.get(0));
         RandomNumber randomNumber = new RandomNumber();
         List<Player> randomPlayerList = randomNumber.randomListGenerator(players);
-        System.out.println(randomPlayerList);
+        // System.out.println(randomPlayerList);
 
+        // Para tomar los equipos de los jugadores
+
+        List<Player> teams = new ArrayList<>();
+
+        for (int i = 0; i < numPlayer; i++) {
+            System.out.println(randomPlayerList.get(i).name + " please input a team: ");
+            Scanner scanner2 = new Scanner(System.in);
+            String team = scanner2.nextLine();
+            Team team1 = new Team();
+            team1.name = team;
+            randomPlayerList.get(i).teams.add(team1);
+        }
     }
 
 }
