@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -6,26 +8,33 @@ public class Main {
 
         List<Player> players = new ArrayList<>();
 
-        // Para tomar cuantos jugadores
         System.out.println("How many players?: ");
-        Scanner scanner = new Scanner(System.in);
-        int numPlayer = scanner.nextInt();
+        Scanner playerNumberScanner = new Scanner(System.in);
+        int numPlayer = playerNumberScanner.nextInt();
 
-        // Para tomar nombres y orden de los jugadores
         for (int i = 0; i < numPlayer; i++) {
 
-            Scanner scanner0 = new Scanner(System.in);
+            Scanner playerNameScanner = new Scanner(System.in);
             System.out.println("Input your name: ");
-            String player = scanner0.nextLine();
-            Player play1 = new Player();
-            play1.name = player;
-            players.add(play1);
+            String playerNameString = playerNameScanner.nextLine();
+            Player playerName = new Player();
+            playerName.name = playerNameString;
+            players.add(playerName);
         }
         System.out.println(players.get(0));
         RandomNumber randomNumber = new RandomNumber();
         List<Player> randomPlayerList = randomNumber.randomListGenerator(players);
-        System.out.println(randomPlayerList);
 
+        // List<Player> teams = new ArrayList<>();
+
+        for (int i = 0; i < numPlayer; i++) {
+            System.out.println(randomPlayerList.get(i).name + " please input a team: ");
+            Scanner teamNameScanner = new Scanner(System.in);
+            String team = teamNameScanner.nextLine();
+            Team teamName = new Team();
+            teamName.name = team;
+            randomPlayerList.get(i).teams.add(teamName);
+        }
     }
 
 }
