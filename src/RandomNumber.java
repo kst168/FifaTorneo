@@ -28,13 +28,14 @@ class RandomNumber {
         selectedNames = new ArrayList<>();
 
 
+
         for (int i = 0; i < sortedPlayers.size(); i++) {
             int a = randomNumbers.get(i);
             sortedPlayers.get(a).teams = new ArrayList<>();
             selectedNames.add(sortedPlayers.get(a));
-            System.out.println(selectedNames);
+            // System.out.println(selectedNames);
         }
-        System.out.println("The selected order will be: ");
+        // System.out.println("The selected order will be: ");
         return selectedNames;
     }
 }

@@ -10,9 +10,13 @@ public class Main {
 
         System.out.println("How many players?: ");
         Scanner playerNumberScanner = new Scanner(System.in);
-        int numPlayer = playerNumberScanner.nextInt();
+        int numPlayers = playerNumberScanner.nextInt();
 
-        for (int i = 0; i < numPlayer; i++) {
+        System.out.println("How many teams will play in total?: ");
+        Scanner teamNumberScanner = new Scanner(System.in);
+        int numTeams = teamNumberScanner.nextInt();
+
+        for (int i = 0; i < numPlayers; i++) {
 
             Scanner playerNameScanner = new Scanner(System.in);
             System.out.println("Input your name: ");
@@ -21,21 +25,34 @@ public class Main {
             playerName.name = playerNameString;
             players.add(playerName);
         }
-        System.out.println(players.get(0));
+
         RandomNumber randomNumber = new RandomNumber();
-        List<Player> randomPlayerList = randomNumber.randomListGenerator(players);
+        List<Player> randomPlayerList;
 
-        // List<Player> teams = new ArrayList<>();
+        for (int u = 0; u < numTeams/numPlayers; u++) {
+            randomPlayerList = randomNumber.randomListGenerator((players));
 
-        for (int i = 0; i < numPlayer; i++) {
-            System.out.println(randomPlayerList.get(i).name + " please input a team: ");
-            Scanner teamNameScanner = new Scanner(System.in);
-            String team = teamNameScanner.nextLine();
-            Team teamName = new Team();
-            teamName.name = team;
-            randomPlayerList.get(i).teams.add(teamName);
+            for (int i = 0; i < numPlayers; i++) {
+
+                System.out.println(randomPlayerList.get(i).name + " please input a team: ");
+                Scanner teamNameScanner = new Scanner(System.in);
+                String team = teamNameScanner.nextLine();
+                Team teamName = new Team();
+                teamName.name = team;
+                randomPlayerList.get(i).teams.add(teamName);
+            }
+
+        }
+        int numGroups = numTeams%numPlayers;
+
+        for (int i = 0; i < 8; i++) {
+
+            Group groupNumber = new Group();
+            groupNumber.groupName = "Group " + String.valueOf((char)(i + 'A'));
+            System.out.println(groupNumber.groupName);
         }
     }
+
 
 }
 
